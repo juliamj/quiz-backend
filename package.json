@@ -6,15 +6,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
-    "dev": "nodemon app.js",
+    "dev": "cross-env NODE_ENV=local nodemon app.js",
     "servers": "concurrently \"npm run dev\" \"cd ../frontend && npm run start\""
-},
+  },
   "keywords": [],
   "author": "juliamj",
   "license": "ISC",
   "dependencies": {
     "concurrently": "^5.3.0",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.2",
+    "custom-env": "^2.0.1",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.5",
     "express": "^4.17.1",
