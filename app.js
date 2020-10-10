@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const cors = require('cors');
-require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` });
+require('dotenv').config();
 const app = express();
 
 app.use(cors());
@@ -13,7 +13,7 @@ app.set('views', './src/pages');
 
 app.use(express.urlencoded({ extended: false }));
 
-app.use('/static', express.static(path.join(`./public`)));
+app.use('/static', express.static(path.join(`${__dirname}/public`)));
 
 app.get('/', (req, res) => res.send('Home Route'));
 
@@ -26,7 +26,7 @@ mongoose
         useCreateIndex: true,
         useUnifiedTopology: true,
         useNewUrlParser: true,
-      useFindAndModify: false,
+        useFindAndModify: false,
     })
     .then(() => {
         app.listen(port, () => console.log(`Server and Database running on ${port}, http://localhost:${port}`));

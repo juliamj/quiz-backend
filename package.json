@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
-    "dev": "cross-env NODE_ENV=local nodemon app.js",
+    "dev": "nodemon app.js",
     "servers": "concurrently \"npm run dev\" \"cd ../frontend && npm run start\""
   },
   "keywords": [],
